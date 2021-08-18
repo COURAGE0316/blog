@@ -2,16 +2,20 @@ var vm = new Vue({
     el: '#app',
     // 修改Vue变量的读取语法，避免和django模板语法冲突
     delimiters: ['[[', ']]'],
-    data: {
-        host,
-        show_menu:false,
-        is_login:true,
-        username:''
+    data() {
+        return {
+            host,
+            show_menu:false,
+            is_login:true,
+            username:''
+        }
     },
     mounted(){
-        this.username=getCookie('username');
-        // this.is_login=getCookie('is_login');
-        this.is_login=true
+//        console.log(getCookie('username'))
+        this.username= Cookies.get('username')
+        this.is_login=Cookies.get('is_login');
+        console.log(this.username)
+//        this.is_login=true
     },
     methods: {
         //显示下拉菜单

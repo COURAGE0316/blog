@@ -10,8 +10,10 @@ var vm = new Vue({
         is_login:false,
     },
     mounted(){
-        this.username=getCookie('username');
-        this.is_login=getCookie('is_login');
+//        this.username=getCookie('username');
+//        this.is_login=getCookie('is_login');
+        this.username= Cookies.get('username')
+        this.is_login=Cookies.get('is_login');
     },
     methods: {
         //显示下拉菜单
